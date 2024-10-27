@@ -3,31 +3,19 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import RoomDetails from './pages/RoomDetails';
-
-
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Home />
-  },
-  {
-    path: '/room/:id',
-    element: <RoomDetails />
-  },
-]);
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 const App = () => {
   return (
-    <div>
+    <Router>
       <Header />
-      <RouterProvider router={router} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/room/:id" element={<RoomDetails />} />
+      </Routes>
       <Footer />
-    </div>
-  )
+    </Router>
+  );
 };
 
 export default App;
-
-// 1:40:00 https://www.youtube.com/watch?v=wSlEJOn-gJQ
